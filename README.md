@@ -5,12 +5,14 @@ SARUnArchiveANY
 	Simply An Integration of Unrar4iOS + SSZipArchive + LZMA SDK (7z).
 
 <b>Advantages :</b>
-	Integration of the most popular archiving libraries, no need for integrating each library separately.
-	Completely Block-based syntax. No Delegation pattern, hence avoiding a lot of clunky codes.
+
+	<li>	Integration of the most popular archiving libraries, no need for integrating each library separately.</li>
+	<li>	Completely Block-based syntax. No Delegation pattern, hence avoiding a lot of clunky codes.</li>
 
 <b>Dis-Advantages :</b>
-	Have tested this only with smaller files. Might not suit well for files with larger sizes ( May be files > 500MB's ).
-	No support for passcode protected archive files.
+
+	<li>	Have tested this only with smaller files. Might not suit well for files with larger sizes ( May be files > 500MB's ).</li>
+	<li>	No support for passcode protected archive files.</li>
 
 
 <b>Instructions :</b>
