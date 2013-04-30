@@ -28,8 +28,8 @@ SARUnArchiveANY
 <b>Usage :</b>
 
     SARUnArchiveANY *unarchive = [[SARUnArchiveANY alloc]initWithPath:filePath];
-<strike>    unarchive.destinationPath = destPath;//(Optional). If it is not given, then the file is unarchived in the same location of its archive file.
-</strike>    unarchive.completionBlock = ^(NSArray *filePaths){
+    unarchive.destinationPath = destPath;//(Optional). If it is not given, then the file is unarchived in the same location of its archive file.
+    unarchive.completionBlock = ^(NSArray *filePaths){
       NSLog(@"For Archive : %@",filePath);
 		for (NSString *filename in filePaths) {
 			NSLog(@"File: %@", filename);
