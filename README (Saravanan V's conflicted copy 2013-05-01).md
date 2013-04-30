@@ -17,22 +17,4 @@ Instructions :
 
 (i) Copy/Include the "External" folder into your project.
 (ii) Copy/Include  "Unrar4iOS.framework" & "libz.dylib" into your project.
-(iii) Finally, Copy "SARUnArchiveANY.h" & "SARUnArchiveANY.m" into your project.
-That's it. your done.
-
-
-Usage :
-
-    SARUnArchiveANY *unarchive = [[SARUnArchiveANY alloc]initWithPath:filePath];
-    unarchive.destinationPath = destPath;//(Optional). If it is not given, then the file is unarchived in the same location of its archive file.
-    unarchive.completionBlock = ^(NSArray *filePaths){
-      NSLog(@"For Archive : %@",filePath);
-		for (NSString *filename in filePaths) {
-			NSLog(@"File: %@", filename);
-		}
-    };
-    unarchive.failureBlock = ^(){
-        NSLog(@"Cannot be unarchived");
-    };
-    [unarchive decompress];
 
