@@ -1,8 +1,8 @@
 SARUnArchiveANY
 ===============
 
-	<li>A very useful library for Unarchiving the .zip, .rar, .7z files for iOS. </li>
-	<li>Simply An Integration of Unrar4iOS + SSZipArchive + LZMA SDK (7z).</li>
+	A very useful library for Unarchiving the .zip, .rar, .7z files for iOS.
+	Simply An Integration of Unrar4iOS + SSZipArchive + LZMA SDK (7z).
 
 <b>Advantages :</b>
 	<li>* Integration of the most popular archiving libraries, no need for integrating each library separately.</li>
@@ -15,10 +15,10 @@ SARUnArchiveANY
 
 <b>Instructions :</b>
 
-	<li>(i) Copy/Include the "External" folder into your project.</li>
-	<li>(ii) Copy/Include  "Unrar4iOS.framework" & "libz.dylib" into your project.</li>
-	<li>(iii) Finally, Copy "SARUnArchiveANY.h" & "SARUnArchiveANY.m" into your project.</li>
-	<li>That's it. your done.</li>
+	(i) Copy/Include the "External" folder into your project.
+	(ii) Copy/Include  "Unrar4iOS.framework" & "libz.dylib" into your project.
+	(iii) Finally, Copy "SARUnArchiveANY.h" & "SARUnArchiveANY.m" into your project.
+	That's it. your done.
 
 
 <b>Usage :</b>
