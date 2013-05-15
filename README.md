@@ -49,6 +49,5 @@ SARUnArchiveANY
 		}
     };
     unarchive.failureBlock = ^(){
-//        NSLog(@"Cannot be unarchived");
     };
     [unarchive decompress];
