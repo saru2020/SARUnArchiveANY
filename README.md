@@ -19,6 +19,10 @@ SARUnArchiveANY
 <b>
 		* Example illustrates on how to make the app support for iTunes File Sharing.
 </b>
+
+<br/>
+<br/>
+
 <b>Dis-Advantages :</b>
 
 		* Have tested this only with smaller files. Might not suit well for files with larger 
