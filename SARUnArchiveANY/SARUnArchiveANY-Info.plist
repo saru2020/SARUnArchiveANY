@@ -95,6 +95,8 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>CFBundleIdentifier</key>
 	<string>saru2020.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
