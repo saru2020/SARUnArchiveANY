@@ -14,6 +14,8 @@ SARUnArchiveANY
 <b>		* Example project illustrates on how to display your app in "Open in" action sheet list, 
 		  when tapped on any of the archive file of the supported format (zip, rar, 7z) in any apps installed on 
 		  the device/simulator.
+</b>
+<b>
 		* Example illustrates on how to make the app support for iTunes File Sharing.
 </b>
 <b>Dis-Advantages :</b>
