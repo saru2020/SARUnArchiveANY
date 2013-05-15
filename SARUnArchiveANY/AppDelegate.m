@@ -26,6 +26,24 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    //    NSLog(@"sourceApplication : %@",sourceApplication);
+    //    NSLog(@"NSStringFromClass([annotation class]) : %@",NSStringFromClass([annotation class]));
+    //    NSURL *url = (NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
+    //    NSLog(@"[url absoluteString] : %@",[url absoluteString]);
+    //    NSLog(@"[url path] : %@",[url path]);
+    
+    //    NSString *storedUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"url"];
+    //    NSLog(@"storedUrl : %@",storedUrl);
+    
+    if (url != nil && [url isFileURL]) {
+        //        [[NSUserDefaults standardUserDefaults]setObject:[url absoluteString] forKey:@"url"];
+        [self.viewController handleFileFromURL:[url path]];
+    }
+    
+    return YES;
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

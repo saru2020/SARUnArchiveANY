@@ -21,16 +21,22 @@
     [super viewDidLoad];
     
     [self unZip];
-    [self unRar];
-    [self Unzip7z];
+//    [self unRar];
+//    [self Unzip7z];
 }
 
 - (void)unArchive: (NSString *)filePath destinationPath:(NSString *)destPath{
     NSAssert(filePath, @"can't find filePath");
     SARUnArchiveANY *unarchive = [[SARUnArchiveANY alloc]initWithPath:filePath];
-    unarchive.destinationPath = destPath;//(Optional). If it is not given, then the file is unarchived in the same location of its archive/file.
+    if (destPath != nil)
+        unarchive.destinationPath = destPath;//(Optional). If it is not given, then the file is unarchived in the same location of its archive/file.
     unarchive.completionBlock = ^(NSArray *filePaths){
       NSLog(@"For Archive : %@",filePath);
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"US Presidents://"]]) {
+            NSLog(@"US Presidents app is installed.");
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"US Presidents://"]];
+        }
+
 		for (NSString *filename in filePaths) {
 			NSLog(@"File: %@", filename);
 		}
@@ -59,6 +65,11 @@
     NSAssert(archiveResPath, @"can't find .7z file");
     NSString *destPath = [self applicationDocumentsDirectory];
     [self unArchive:archiveResPath destinationPath:destPath];
+}
+
+- (void)handleFileFromURL:(NSString *)filePath{
+    NSLog(@"*********       FILES FROM THE OTHER APPS       *********");
+    [self unArchive:filePath destinationPath:nil];
 }
 
 - (NSString *) applicationDocumentsDirectory

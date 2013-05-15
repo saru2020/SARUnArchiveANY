@@ -11,4 +11,6 @@
 
 @interface ViewController : UIViewController
 
+- (void)handleFileFromURL:(NSString *)filePath;
+
 @end
