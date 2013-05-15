@@ -15,6 +15,7 @@ SARUnArchiveANY
 		  when tapped on any of the archive file of the supported format (zip, rar, 7z) in any apps installed on 
 		  the device/simulator.
 </b>
+<br/>
 <b>
 		* Example illustrates on how to make the app support for iTunes File Sharing.
 </b>
@@ -43,7 +44,4 @@ SARUnArchiveANY
 			NSLog(@"File: %@", filename);
 		}
     };
-    unarchive.failureBlock = ^(){
-        NSLog(@"Cannot be unarchived");
-    };
-    [unarchive decompress];
+    unarchive.failureBlock
