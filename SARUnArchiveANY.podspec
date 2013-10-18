@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.name         = "SARUnArchiveANY"
   s.version      = "0.0.1"
   s.summary      = 'UnArchiving Library for iOS'
+  s.description = 'A very useful library for Unarchiving the .zip, .rar, .7z files for iOS. Simply An Integration of Unrar4iOS + SSZipArchive + LZMA SDK (7z).'
 
   s.homepage     = "https://github.com/saru2020/SARUnArchiveANY"
 
@@ -19,8 +20,6 @@ s.source = {
     :tag => s.version.to_s
   }
 
-
-  s.source_files  = 'SARUnarchiveANY/*.{h,m}'
-
+  s.source_files = 'Classes', 'External/**/*.{h,m}'                                         # 5
 
 end
