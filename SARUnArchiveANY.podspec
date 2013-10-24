@@ -16,10 +16,10 @@ s.author = {
   }
 
 s.source = {
-    :git => 'https://github.com/saru2020/SARUnArchiveANY',
+    :git => 'https://github.com/saru2020/SARUnArchiveANY.git',
     :tag => s.version.to_s
   }
 
-  s.source_files = 'Classes', 'External/**/*.{h,m}'                                         # 5
+  s.source_files = '*.{h,m}', 'External/**/*.{h,m}'                                         # 5
 
 end
