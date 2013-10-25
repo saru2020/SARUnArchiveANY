@@ -37,7 +37,14 @@ Simply An Integration of the following libraries :
 		* No support for passcode protected archive files.
 
 
-<b>Instructions :</b>
+<b>Installation :</b><br/>
+Add the following to your <a href="http://cocoapods.org/">CocoaPods</a> Podfile
+
+	pod 'SARAddressBookBackup'
+
+or clone as a git submodule,
+
+or just do these 3 steps :
 
 	(i) Copy/Include the "External" folder into your project.
 	(ii) Copy/Include  "Unrar4iOS.framework" & "libz.dylib" into your project.
