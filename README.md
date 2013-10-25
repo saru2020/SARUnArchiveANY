@@ -4,10 +4,11 @@ SARUnArchiveANY
 	A very useful library for Unarchiving the .zip, .rar, .7z files for iOS.
 	
 Simply An Integration of the following libraries :
+<p>
 	* <a href="https://github.com/ararog/Unrar4iOS">Unrar4iOS</a>
 	* <a href="https://github.com/soffes/ssziparchive"> SSZipArchive </a>
 	* <a href="http://www.7-zip.org/sdk.html">LZMA SDK (7z)</a>
-
+</p>
 
 <b>Advantages :</b>
 
