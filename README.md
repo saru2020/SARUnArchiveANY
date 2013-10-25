@@ -15,6 +15,8 @@ Simply An Integration of the following libraries :
 		* Integration of the most popular archiving libraries, no need for integrating each library separately.
 		* Completely Block-based syntax. No Delegation pattern, hence avoiding a lot of clunky codes.
 
+<br/>
+
 <p>
 <b>		* Example project illustrates on how to display your app in "Open in" action sheet list, 
 		  when tapped on any of the archive file of the supported format (zip, rar, 7z) in any apps installed on 
