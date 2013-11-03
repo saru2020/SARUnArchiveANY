@@ -20,6 +20,6 @@ s.source = {
     :tag => s.version.to_s
   }
 
-  s.source_files = 'SARUnArchiveANY/*.{h,m,hpp}', 'External/**/*.{h,m,hpp,c,mm}'                                     # 5
+  s.source_files = 'SARUnArchiveANY/*.{h,m,hpp}', 'External/**/*.{h,m,hpp,c,mm}', 'Frameworks/*.framework'
 
 end
