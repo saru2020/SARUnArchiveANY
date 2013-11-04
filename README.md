@@ -40,7 +40,7 @@ Simply An Integration of the following libraries :
 <b>Installation :</b><br/>
 Add the following to your <a href="http://cocoapods.org/">CocoaPods</a> Podfile
 
-	pod 'SARAddressBookBackup'
+	pod 'SARUnArchiveANY'
 
 or clone as a git submodule,
 
