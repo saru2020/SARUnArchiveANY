@@ -51,6 +51,8 @@ or just do these 3 steps :
 	(iii) Finally, Copy "SARUnArchiveANY.h" & "SARUnArchiveANY.m" into your project.
 	That's it. your done.
 
+<i>Recommended are the Last 2 options, since i found difficult to put up the complete settings 
+for "Unrar4iOS" framework into the Pod file. </i>
 
 <b>Usage :</b>
 
