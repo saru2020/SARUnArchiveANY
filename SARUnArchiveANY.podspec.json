@@ -39,10 +39,11 @@
     },
     {
       "name": "ZipArchive",
-      "source_files": [
-        "SARUnArchiveANY/External/ZipArchive/*.{h,m}",
-        "SARUnArchiveANY/External/ZipArchive/**/*.{h,c}"
-      ]
+      "dependencies": {
+        "SSZipArchive": [
+          "~> 0.3.2"
+        ]
+      }
     }
   ]
 }
