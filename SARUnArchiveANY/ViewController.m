@@ -20,9 +20,10 @@
 {
     [super viewDidLoad];
     
-    [self unZip];
+//    NOTE: UnComment the below lines of code to see the execution of other file types decompression
+//    [self unZip];
 //    [self unRar];
-//    [self Unzip7z];
+    [self Unzip7z];
 }
 
 - (void)unArchive: (NSString *)filePath destinationPath:(NSString *)destPath{

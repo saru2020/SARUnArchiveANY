@@ -1457,7 +1457,11 @@ SzArEx_DictCache_free(SzArEx_DictCache *dictCache)
   SzArEx_DictCache_init(dictCache, dictCache->allocMain);
 }
 
+#if __LP64__
+#define SM_PAGESIZE 16384
+#else
 #define SM_PAGESIZE 4096
+#endif // __LP64__
 
 int
 SzArEx_DictCache_mmap(SzArEx_DictCache *dictCache)
@@ -1477,7 +1481,7 @@ SzArEx_DictCache_mmap(SzArEx_DictCache *dictCache)
   
   // Make sure mapSize is in terms of whole pages
   {
-    int numPages = mapSize / SM_PAGESIZE;
+    int numPages = (int) mapSize / SM_PAGESIZE;
     if ((mapSize % SM_PAGESIZE) > 0) {
       numPages += 1;
     }
@@ -1488,7 +1492,7 @@ SzArEx_DictCache_mmap(SzArEx_DictCache *dictCache)
   assert((mapSize % SM_PAGESIZE) == 0);
   dictCache->mapSize = mapSize;
   
-  if (1) {
+  if ((1)) {
     // Seek to the end of the file should create holes in file, but this
     // does not seem to create a writable mapping as the access at the
     // end of this function crashes.
@@ -1502,7 +1506,7 @@ SzArEx_DictCache_mmap(SzArEx_DictCache *dictCache)
     // Need to actually write a byte in order for the file
     // to be extended to this length.
     char oneByte = 0;
-    int writeResult = (int)fwrite(&oneByte, 1, 1, mapfile);
+    int writeResult = (int) fwrite(&oneByte, 1, 1, mapfile);
     assert(writeResult == 1);
     
     fflush(mapfile);

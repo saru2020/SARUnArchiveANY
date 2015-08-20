@@ -17,8 +17,8 @@ EXTERN_C_BEGIN
 extern Byte k7zSignature[k7zSignatureSize];
 #define k7zMajorVersion 0
 
-// 1024K = 1 Meg * 16 = 16M (max size of dictionary for in memory allocation, larger will be mmapped)
-#define k7zUnpackMapDictionaryInMemoryMaxNumBytes 1024*1024*16
+// 1024K = 1 Meg
+#define k7zUnpackMapDictionaryInMemoryMaxNumBytes 1024*1024
 
 enum EIdEnum
 {

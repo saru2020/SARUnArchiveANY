@@ -115,7 +115,7 @@ int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryNam
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:myTmpDir error:nil];
     NSAssert(contents, @"contentsOfDirectoryAtPath failed");
     for (NSString *path in contents) {
-//      NSLog(@"found existing dir path: %@", path);
+      NSLog(@"found existing dir path: %@", path);
       NSString *myTmpDirPath = [myTmpDir stringByAppendingPathComponent:path];
       worked = [[NSFileManager defaultManager] removeItemAtPath:myTmpDirPath error:nil];
       NSAssert(worked, @"could not remove existing file");
@@ -127,7 +127,7 @@ int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryNam
   
   worked = [[NSFileManager defaultManager] changeCurrentDirectoryPath:myTmpDir];
   NSAssert(worked, @"cd to tmp 7z dir failed");
-//  NSLog(@"cd to %@", myTmpDir);
+  NSLog(@"cd to %@", myTmpDir);
   
   char *archivePathPtr = (char*) [archivePath UTF8String];
   NSString *archiveCachePath = [self generateUniqueTmpCachePath];
@@ -158,18 +158,6 @@ int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryNam
 	NSString *tmpDir = NSTemporaryDirectory();
   NSString *fullTmpDir = [tmpDir stringByAppendingPathComponent:tmpDirName];
   return [self extract7zArchive:archivePath dirName:fullTmpDir preserveDir:FALSE];
-}
-
-+ (NSArray*) extract7zArchive:(NSString*)archivePath
-              destinationPath:(NSString*)destPath
-                   tmpDirName:(NSString*)tmpDirName
-{
-    NSAssert(archivePath, @"archivePath");
-    NSAssert(destPath, @"destPath");
-    NSAssert(tmpDirName, @"tmpDirName");
-//	NSString *tmpDir = NSTemporaryDirectory();
-    NSString *fullPath = [destPath stringByAppendingPathComponent:tmpDirName];
-    return [self extract7zArchive:archivePath dirName:fullPath preserveDir:FALSE];
 }
 
 // Extract just one entry from an archive and save it at the

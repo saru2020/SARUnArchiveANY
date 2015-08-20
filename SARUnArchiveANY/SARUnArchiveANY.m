@@ -105,8 +105,11 @@
 
 - (void)decompress7z{
     NSString *tmpDirname = @"Extract 7z";    
-    NSArray *contents = [LZMAExtractor extract7zArchive:_filePath destinationPath:_destinationPath tmpDirName:tmpDirname];
+    _destinationPath = [_destinationPath stringByAppendingPathComponent:tmpDirname];
     
+    NSArray *contents = [LZMAExtractor extract7zArchive:_filePath dirName:_destinationPath preserveDir:YES];
+    
+//    UnComment below lines to see the path of each file extracted    
 //    for (NSString *entryPath in contents) {
 //        NSLog(@"entryPath : %@", entryPath);
 //    }

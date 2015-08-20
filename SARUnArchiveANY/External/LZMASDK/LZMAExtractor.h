@@ -27,9 +27,6 @@
 
 + (NSArray*) extract7zArchive:(NSString*)archivePath
                    tmpDirName:(NSString*)tmpDirName;
-+ (NSArray*) extract7zArchive:(NSString*)archivePath
-              destinationPath:(NSString*)destPath
-                   tmpDirName:(NSString*)tmpDirName;
 
 // Extract just one entry from an archive and save it at the
 // path indicated by outPath.
