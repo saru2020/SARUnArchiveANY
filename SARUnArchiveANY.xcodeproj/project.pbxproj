@@ -204,7 +204,7 @@
 		848689CB172A55D00071C32A = {
 			isa = PBXGroup;
 			children = (
-				EBC19BF818113CA700F8C0F7 /* External */,
+				EBC19BF818113CA700F8C0F7 /* vendor */,
 				848689DD172A55D00071C32A /* SARUnArchiveANY */,
 				84868A63172A5CF00071C32A /* Resources */,
 				848689D6172A55D00071C32A /* Frameworks */,
@@ -272,14 +272,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		EBC19BF818113CA700F8C0F7 /* External */ = {
+		EBC19BF818113CA700F8C0F7 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
 				EBC19BF918113CA700F8C0F7 /* LZMASDK */,
 				EBC19C1F18113CA700F8C0F7 /* Unrar */,
 				EBC19C5D18113CA700F8C0F7 /* ZipArchive */,
 			);
-			name = External;
+			name = vendor;
 			path = SARUnArchiveANY/External;
 			sourceTree = "<group>";
 		};
