@@ -29,6 +29,18 @@
 	return self;
 }
 
+- (id)initWithPath:(NSString *)path andPassword:(NSString*)password{
+    if ((self = [super init])) {
+        _filePath = [path copy];
+        _password = [password copy];
+        _fileType = [[NSString alloc]init];
+    }
+    
+    if (_filePath != nil) {
+        _destinationPath = [self getDestinationPath];
+    }
+    return self;
+}
 
 #pragma mark - Helper Methods
 - (NSString *)getDestinationPath{
@@ -59,7 +71,20 @@
 //    _filePath = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"rar"];
 //    NSLog(@"filePath : %@",_filePath);
 	Unrar4iOS *unrar = [[Unrar4iOS alloc] init];
-	BOOL ok = [unrar unrarOpenFile:_filePath];
+
+    BOOL ok;
+    if (self.password != nil && self.password.length > 0) {
+        @try {
+            ok = [unrar unrarOpenFile:_filePath withPassword:self.password];
+        }
+        @catch(NSException *exception) {
+            NSLog(@"exception: %@", exception);
+        }
+    }
+    else{
+        ok = [unrar unrarOpenFile:_filePath];
+    }
+
 	if (ok) {
 		NSArray *files = [unrar unrarListFiles];
         NSMutableArray *filePathsArray = [NSMutableArray array];
@@ -82,7 +107,7 @@
                 }
             }
         }
-		[unrar unrarCloseFile];
+        [unrar unrarCloseFile];
 	}
 	else{
         if (failureBlock != nil) {
@@ -98,6 +123,12 @@
     _destinationPath = [_destinationPath stringByAppendingPathComponent:tmpDirname];
     BOOL unzipped = [SSZipArchive unzipFileAtPath:_filePath toDestination:_destinationPath delegate:self];
 //    NSLog(@"unzipped : %d",unzipped);
+    NSError *error;
+    if (self.password != nil && self.password.length > 0) {
+        unzipped = [SSZipArchive unzipFileAtPath:_filePath toDestination:_destinationPath overwrite:NO password:self.password error:&error delegate:self];
+        NSLog(@"error: %@", error);
+    }
+    
     if ( !unzipped ) {
         failureBlock();
     }

@@ -50,6 +50,8 @@
 		EB8F9D0B1C4A2BFA00C0ABA4 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CF01C4A2BFA00C0ABA4 /* zip.c */; };
 		EB8F9D0C1C4A2BFA00C0ABA4 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CF31C4A2BFA00C0ABA4 /* SSZipArchive.m */; };
 		EB8F9D0F1C4A2C2E00C0ABA4 /* Unrar4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F9D0E1C4A2C2E00C0ABA4 /* Unrar4iOS.framework */; };
+		EBC744531D227F9900EE4011 /* example_pwd.rar in Resources */ = {isa = PBXBuildFile; fileRef = EBC744511D227F9900EE4011 /* example_pwd.rar */; };
+		EBC744541D227F9900EE4011 /* Zip_Example_pwd.zip in Resources */ = {isa = PBXBuildFile; fileRef = EBC744521D227F9900EE4011 /* Zip_Example_pwd.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +185,8 @@
 		EB8F9CF21C4A2BFA00C0ABA4 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		EB8F9CF31C4A2BFA00C0ABA4 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		EB8F9D0E1C4A2C2E00C0ABA4 /* Unrar4iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Unrar4iOS.framework; sourceTree = "<group>"; };
+		EBC744511D227F9900EE4011 /* example_pwd.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = example_pwd.rar; sourceTree = "<group>"; };
+		EBC744521D227F9900EE4011 /* Zip_Example_pwd.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Zip_Example_pwd.zip; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +266,8 @@
 		84868A63172A5CF00071C32A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EBC744511D227F9900EE4011 /* example_pwd.rar */,
+				EBC744521D227F9900EE4011 /* Zip_Example_pwd.zip */,
 				84206226172FF097006BAB2B /* example.7z */,
 				84868A66172A62BD0071C32A /* Zip_Example.zip */,
 				84868A64172A5CFF0071C32A /* example.rar */,
@@ -503,8 +509,10 @@
 			files = (
 				848689E2172A55D00071C32A /* InfoPlist.strings in Resources */,
 				848689EA172A55D00071C32A /* Default.png in Resources */,
+				EBC744541D227F9900EE4011 /* Zip_Example_pwd.zip in Resources */,
 				848689EC172A55D00071C32A /* Default@2x.png in Resources */,
 				848689EE172A55D00071C32A /* Default-568h@2x.png in Resources */,
+				EBC744531D227F9900EE4011 /* example_pwd.rar in Resources */,
 				848689F4172A55D00071C32A /* ViewController_iPhone.xib in Resources */,
 				848689F7172A55D00071C32A /* ViewController_iPad.xib in Resources */,
 				84868A65172A5CFF0071C32A /* example.rar in Resources */,

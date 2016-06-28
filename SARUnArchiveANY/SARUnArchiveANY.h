@@ -28,6 +28,7 @@ typedef void(^Failure)();
 }
 
 @property (nonatomic, strong) NSString *filePath;
+@property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) NSString *destinationPath;
 @property (nonatomic, copy) Completion completionBlock;
 @property (nonatomic, copy) Failure failureBlock;

@@ -10,10 +10,11 @@ Simply An Integration of the following libraries :
 	* <a href="http://www.7-zip.org/sdk.html">LZMA SDK (7z)</a><br/>
 </p>
 
-<b>Advantages :</b>
+<b>Pros:</b>
 
 		* Integration of the most popular archiving libraries, no need for integrating each library separately.
 		* Completely Block-based syntax. No Delegation pattern, hence avoiding a lot of clunky codes.
+		* UnArchive Password protected files (Except 7z).
 
 <br/>
 
@@ -30,11 +31,10 @@ Simply An Integration of the following libraries :
 
 <br/>
 
-<b>Dis-Advantages :</b>
+<b>Cons:</b>
 
 		* Have tested this only with smaller files. Might not suit well for files with larger 
 		  sizes ( May be files > 500MB's ).
-		* No support for passcode protected archive files.
 
 
 <b>Installation :</b><br/>
