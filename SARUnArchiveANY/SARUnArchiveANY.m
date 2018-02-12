@@ -7,9 +7,9 @@
 //
 
 #import "SARUnArchiveANY.h"
-#include "Unrar4IOS.h"
 #import "SSZipArchive.h"
 #import "LZMAExtractor.h"
+@import UnrarKit;
 
 @implementation SARUnArchiveANY
 @synthesize completionBlock;
@@ -69,51 +69,53 @@
     NSString *tmpDirname = @"Extract rar";
     _destinationPath = [_destinationPath stringByAppendingPathComponent:tmpDirname];
 //    _filePath = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"rar"];
-//    NSLog(@"filePath : %@",_filePath);
-	Unrar4iOS *unrar = [[Unrar4iOS alloc] init];
+    NSLog(@"filePath : %@",_filePath);
+    NSLog(@"destinationPath : %@",_destinationPath);
 
-    BOOL ok;
-    if (self.password != nil && self.password.length > 0) {
-        @try {
-            ok = [unrar unrarOpenFile:_filePath withPassword:self.password];
-        }
-        @catch(NSException *exception) {
-            NSLog(@"exception: %@", exception);
-        }
+    NSError *archiveError = nil;
+    URKArchive *archive = [[URKArchive alloc] initWithPath:_filePath error:&archiveError];
+    
+    if (!archive) {
+        NSLog(@"Failed!");
+        return;
     }
-    else{
-        ok = [unrar unrarOpenFile:_filePath];
+    
+    NSError *error = nil;
+    NSArray *filenames = [archive listFilenames:&error];
+    
+    if (archive.isPasswordProtected) {
+        archive.password = self.password;
     }
-
-	if (ok) {
-		NSArray *files = [unrar unrarListFiles];
-        NSMutableArray *filePathsArray = [NSMutableArray array];
-		for (NSString *filePath in files){
-            [filePathsArray addObject:[_destinationPath stringByAppendingPathComponent:filePath]];
+    
+    if (error) {
+        NSLog(@"Error reading archive: %@", error);
+        return;
+    }
+    
+//    for (NSString *filename in filenames) {
+//        NSLog(@"File: %@", filename);
+//    }
+    
+    // Extract a file into memory just to validate if it works/extracts
+    [archive extractDataFromFile:filenames[0] progress:nil error:&error];
+    
+    if (error) {
+        if (error.code == ERAR_MISSING_PASSWORD) {
+            NSLog(@"Password protected archive! Please provide a password for the archived file.");
         }
-
-//        NSLog(@"_destinationPath : %@",_destinationPath);
-        BOOL extracted = [unrar unrarFileTo:_destinationPath overWrite:YES];
-//        NSLog(@"extracted : %d",extracted);
-
-//        [self moveFilesToDestinationPathFromCompletePaths:filePathsArray withFilePaths:files];
-        if ( extracted ) {
-            if (completionBlock != nil) {
-                completionBlock(filePathsArray);
-            }
-            else{
-                if (failureBlock != nil) {
-                    failureBlock();
-                }
-            }
-        }
-        [unrar unrarCloseFile];
-	}
-	else{
         if (failureBlock != nil) {
             failureBlock();
         }
-		[unrar unrarCloseFile];
+    }
+    else {
+        NSMutableArray *filePathsArray = [NSMutableArray array];
+        for (NSString *filePath in filenames){
+            [filePathsArray addObject:[_destinationPath stringByAppendingPathComponent:filePath]];
+        }
+        [self moveFilesToDestinationPathFromCompletePaths:filePathsArray withFilePaths:filenames withArchive:archive];
+        if (completionBlock != nil) {
+            completionBlock(filePathsArray);
+        }
     }
     
 }
@@ -175,31 +177,13 @@
 
 #pragma mark - Not using these methods now
 //Writing this for Unrar4iOS, since it just unrar's(decompresses) the files into the compressed(rar) file's folder path
-- (void)moveFilesToDestinationPathFromCompletePaths:(NSArray *)completeFilePathsArray withFilePaths:(NSArray *)filePathsArray{
-    if ( _destinationPath == [self getDestinationPath] ) {
-        return;
-    }
-    NSFileManager *fileManager = [NSFileManager defaultManager];
+- (void)moveFilesToDestinationPathFromCompletePaths:(NSArray *)completeFilePathsArray withFilePaths:(NSArray *)filePathsArray withArchive:(URKArchive*)archive{
+    
     NSError *error;
-    
-    for ( NSString *filePath in completeFilePathsArray ){
-        int index = [completeFilePathsArray indexOfObject:filePath];
-        NSString *fileDestinationPath = [_destinationPath stringByAppendingPathComponent:[filePathsArray objectAtIndex:index]];
-        if([fileManager fileExistsAtPath:fileDestinationPath]){
-            [fileManager removeItemAtPath:fileDestinationPath error:&error];
-        }
-        else{
-            NSLog(@"filePath : %@",filePath);
-            if(![fileManager moveItemAtPath:filePath
-                                     toPath:fileDestinationPath
-                                      error:&error])
-            {
-                //TODO: Handle error
-                NSLog(@"Error: %@", error);
-            }
-        }
-    }
-    
+    [archive extractFilesTo:_destinationPath overwrite:NO progress:^(URKFileInfo *currentFile, CGFloat percentArchiveDecompressed) {
+//        NSLog(@"Extracting %@: %f%% complete", currentFile.filename, percentArchiveDecompressed);
+    } error:&error];
+    NSLog(@"Error: %@", error);
 }
 
 @end

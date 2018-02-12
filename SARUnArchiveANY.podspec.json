@@ -20,21 +20,14 @@
     "tag": "0.0.1"
   },
   "source_files": "SARUnArchiveANY/SARUnArchiveANY.{h,m}",
-  "vendored_frameworks": "Frameworks/Unrar4iOS.framework",
+  "vendored_frameworks": "SARUnArchiveANY/vendor/Frameworks/UnrarKit.framework",
   "requires_arc": true,
   "subspecs": [
     {
       "name": "LZMASDK",
       "source_files": [
-        "SARUnArchiveANY/External/LZMASDK/*.{h,c,m}",
-        "SARUnArchiveANY/External/LZMASDK/Util/7z/*.{h,c}"
-      ]
-    },
-    {
-      "name": "Unrar",
-      "source_files": [
-        "SARUnArchiveANY/External/Unrar/*.{h,c,hpp}",
-        "SARUnArchiveANY/External/Unrar/**/*.{h,c,hpp}"
+        "SARUnArchiveANY/vendor/LZMASDK/*.{h,c,m}",
+        "SARUnArchiveANY/vendor/LZMASDK/Util/7z/*.{h,c}"
       ]
     },
     {

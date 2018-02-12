@@ -40,13 +40,8 @@
         unarchive.destinationPath = destPath;//(Optional). If it is not given, then the file is unarchived in the same location of its archive/file.
     unarchive.completionBlock = ^(NSArray *filePaths){
       NSLog(@"For Archive : %@",filePath);
-        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"US Presidents://"]]) {
-            NSLog(@"US Presidents app is installed.");
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"US Presidents://"]];
-        }
-
 		for (NSString *filename in filePaths) {
-			NSLog(@"File: %@", filename);
+			NSLog(@"Extracted Filepath: %@", filename);
 		}
     };
     unarchive.failureBlock = ^(){
