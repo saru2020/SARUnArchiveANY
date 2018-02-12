@@ -1,6 +1,6 @@
 {
   "name": "SARUnArchiveANY",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "UnArchiving Library for iOS",
   "description": "A very useful library for Unarchiving the .zip, .rar, .7z format files for iOS. Simply An Integration of Unrar4iOS + SSZipArchive + LZMA SDK (7z).",
   "homepage": "https://github.com/saru2020/SARUnArchiveANY",
@@ -9,7 +9,7 @@
     "text": "Copyright (C) 2010 Apple Inc. All Rights Reserved."
   },
   "platforms": {
-    "ios": "5.0"
+    "ios": "8.1"
   },
   "authors": {
     "Saravanan": "saru2020@gmail.com"
@@ -17,7 +17,7 @@
   "libraries": "z",
   "source": {
     "git": "https://github.com/saru2020/SARUnArchiveANY.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "source_files": "SARUnArchiveANY/SARUnArchiveANY.{h,m}",
   "vendored_frameworks": "SARUnArchiveANY/vendor/Frameworks/UnrarKit.framework",
