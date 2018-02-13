@@ -7,10 +7,10 @@
 //
 
 #import "SARUnArchiveANY.h"
-#import "SSZipArchive.h"
-#import "LzmaSDKObjC.h"
 
+@import SSZipArchive;
 @import UnrarKit;
+@import LzmaSDK_ObjC;
 
 @implementation SARUnArchiveANY
 @synthesize completionBlock;
