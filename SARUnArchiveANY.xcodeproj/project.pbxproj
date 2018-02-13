@@ -417,6 +417,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AD30F64300F8D4573851963A /* Pods-SARUnArchiveANY.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = BSHRCTUNBM;
@@ -443,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1A4F601F5DFBCF7A940A6115 /* Pods-SARUnArchiveANY.release.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = BSHRCTUNBM;
