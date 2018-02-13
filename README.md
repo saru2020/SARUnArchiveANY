@@ -14,7 +14,7 @@ Simply An Integration of the following libraries :
 
 		* Integration of the most popular archiving libraries, no need for integrating each library separately.
 		* Completely Block-based syntax. No Delegation pattern, hence avoiding a lot of clunky codes.
-		* UnArchive Password protected files (Except 7z).
+		* UnArchive Password protected files.
 
 <br/>
 
@@ -44,15 +44,7 @@ Add the following to your <a href="http://cocoapods.org/">CocoaPods</a> Podfile
 
 or clone as a git submodule,
 
-or just do these 3 steps :
-
-	(i) Copy/Include the "External" folder into your project.
-	(ii) Copy/Include  "Unrar4iOS.framework" & "libz.dylib" into your project.
-	(iii) Finally, Copy "SARUnArchiveANY.h" & "SARUnArchiveANY.m" into your project.
-	That's it. your done.
-
-<i>Recommended are the Last 2 options, since i found difficult to put up the complete settings 
-for "Unrar4iOS" framework into the Pod file. </i>
+or any way you'd prefer to play with ;)
 
 <b>Usage :</b>
 
