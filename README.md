@@ -7,7 +7,7 @@ Simply An Integration of the following libraries :
 <p>
 	* <a href="https://github.com/abbeycode/UnrarKit">UnrarKit</a><br/>
 	* <a href="https://github.com/soffes/ssziparchive"> SSZipArchive </a><br/>
-	* <a href="http://www.7-zip.org/sdk.html">LZMA SDK (7z)</a><br/>
+	* <a href="https://github.com/OlehKulykov/LzmaSDKObjC">LzmaSDKObjC (7z)</a><br/>
 </p>
 
 <b>Pros:</b>
