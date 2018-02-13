@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SSZipArchive.h"
-
+//#import "SSZipArchive.h"
+#import <SSZipArchive/SSZipArchive.h>
 #define UNIQUE_KEY( x ) NSString * const x = @#x
 
 enum{
