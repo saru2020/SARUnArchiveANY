@@ -3,6 +3,9 @@
 
 #include "7zFile.h"
 
+#include <string.h>
+#include <stdlib.h>
+
 #ifndef USE_WINDOWS_FILE
 
 #ifndef UNDER_CE
@@ -35,17 +38,29 @@ void File_Construct(CSzFile *p)
 }
 
 #if !defined(UNDER_CE) || !defined(USE_WINDOWS_FILE)
-static WRes File_Open(CSzFile *p, const char *name, int writeMode)
+static WRes File_Open(CSzFile *p, const char *name, int writeMode, const char* threadCwd)
 {
+  char *qualName = (char*) name;
+  if (threadCwd != NULL) {
+    qualName = (char *) malloc(strlen(threadCwd) + strlen(name) + 1);
+    strcpy(qualName, threadCwd);
+    strcat(qualName, (char*)name);
+  }
   #ifdef USE_WINDOWS_FILE
-  p->handle = CreateFileA(name,
+  p->handle = CreateFileA(qualName,
       writeMode ? GENERIC_WRITE : GENERIC_READ,
       FILE_SHARE_READ, NULL,
       writeMode ? CREATE_ALWAYS : OPEN_EXISTING,
       FILE_ATTRIBUTE_NORMAL, NULL);
+  if (qualName != name) {
+    free(qualName);
+  }
   return (p->handle != INVALID_HANDLE_VALUE) ? 0 : GetLastError();
   #else
-  p->file = fopen(name, writeMode ? "wb+" : "rb");
+  p->file = fopen(qualName, writeMode ? "wb+" : "rb");
+  if (qualName != name) {
+    free(qualName);
+  }
   return (p->file != 0) ? 0 :
     #ifdef UNDER_CE
     2; /* ENOENT */
@@ -55,8 +70,8 @@ static WRes File_Open(CSzFile *p, const char *name, int writeMode)
   #endif
 }
 
-WRes InFile_Open(CSzFile *p, const char *name) { return File_Open(p, name, 0); }
-WRes OutFile_Open(CSzFile *p, const char *name) { return File_Open(p, name, 1); }
+WRes InFile_Open(CSzFile *p, const char *name) { return File_Open(p, name, 0, NULL); }
+WRes OutFile_Open(CSzFile *p, const char *name, const char *threadCwd) { return File_Open(p, name, 1, threadCwd); }
 #endif
 
 #ifdef USE_WINDOWS_FILE
@@ -70,7 +85,7 @@ static WRes File_OpenW(CSzFile *p, const WCHAR *name, int writeMode)
   return (p->handle != INVALID_HANDLE_VALUE) ? 0 : GetLastError();
 }
 WRes InFile_OpenW(CSzFile *p, const WCHAR *name) { return File_OpenW(p, name, 0); }
-WRes OutFile_OpenW(CSzFile *p, const WCHAR *name) { return File_OpenW(p, name, 1); }
+WRes OutFile_OpenW(CSzFile *p, const WCHAR *name, const WCHAR *threadCwd) { return File_OpenW(p, name, 1, threadCwd); }
 #endif
 
 WRes File_Close(CSzFile *p)

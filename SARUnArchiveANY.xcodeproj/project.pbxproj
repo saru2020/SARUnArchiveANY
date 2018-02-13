@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A99E3DC20319D7300BC0B30 /* UnrarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A99E3DA20319B6E00BC0B30 /* UnrarKit.framework */; };
-		6A99E3DD20319D7300BC0B30 /* UnrarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A99E3DA20319B6E00BC0B30 /* UnrarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40C035D381CFF750DC3D9037 /* Pods_SARUnArchiveANY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D83226E8FA1FF1BB5864A13 /* Pods_SARUnArchiveANY.framework */; };
 		84206227172FF097006BAB2B /* example.7z in Resources */ = {isa = PBXBuildFile; fileRef = 84206226172FF097006BAB2B /* example.7z */; };
 		848689D8172A55D00071C32A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848689D7172A55D00071C32A /* UIKit.framework */; };
 		848689DA172A55D00071C32A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848689D9172A55D00071C32A /* Foundation.framework */; };
@@ -54,13 +53,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6A99E3DE20319D7300BC0B30 /* Embed Frameworks */ = {
+		6A99E3FA2031B40800BC0B30 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6A99E3DD20319D7300BC0B30 /* UnrarKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6A99E3DA20319B6E00BC0B30 /* UnrarKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnrarKit.framework; sourceTree = "<group>"; };
+		1A4F601F5DFBCF7A940A6115 /* Pods-SARUnArchiveANY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SARUnArchiveANY.release.xcconfig"; path = "Pods/Target Support Files/Pods-SARUnArchiveANY/Pods-SARUnArchiveANY.release.xcconfig"; sourceTree = "<group>"; };
+		5D83226E8FA1FF1BB5864A13 /* Pods_SARUnArchiveANY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SARUnArchiveANY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84206226172FF097006BAB2B /* example.7z */ = {isa = PBXFileReference; lastKnownFileType = file; path = example.7z; sourceTree = "<group>"; };
 		848689D4172A55D00071C32A /* SARUnArchiveANY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SARUnArchiveANY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848689D7172A55D00071C32A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -92,6 +91,7 @@
 		84868A66172A62BD0071C32A /* Zip_Example.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Zip_Example.zip; sourceTree = "<group>"; };
 		84868A68172A800D0071C32A /* SARUnArchiveANY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SARUnArchiveANY.h; sourceTree = "<group>"; };
 		84868A69172A800D0071C32A /* SARUnArchiveANY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SARUnArchiveANY.m; sourceTree = "<group>"; };
+		AD30F64300F8D4573851963A /* Pods-SARUnArchiveANY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SARUnArchiveANY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SARUnArchiveANY/Pods-SARUnArchiveANY.debug.xcconfig"; sourceTree = "<group>"; };
 		EB8F9C841C4A2BFA00C0ABA4 /* 7z.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7z.h; sourceTree = "<group>"; };
 		EB8F9C851C4A2BFA00C0ABA4 /* 7zBuf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zBuf.c; sourceTree = "<group>"; };
 		EB8F9C861C4A2BFA00C0ABA4 /* 7zBuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zBuf.h; sourceTree = "<group>"; };
@@ -147,17 +147,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A99E3DC20319D7300BC0B30 /* UnrarKit.framework in Frameworks */,
 				84868A62172A57700071C32A /* libz.dylib in Frameworks */,
 				848689D8172A55D00071C32A /* UIKit.framework in Frameworks */,
 				848689DA172A55D00071C32A /* Foundation.framework in Frameworks */,
 				848689DC172A55D00071C32A /* CoreGraphics.framework in Frameworks */,
+				40C035D381CFF750DC3D9037 /* Pods_SARUnArchiveANY.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1647B3F64C41583B50154FD2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD30F64300F8D4573851963A /* Pods-SARUnArchiveANY.debug.xcconfig */,
+				1A4F601F5DFBCF7A940A6115 /* Pods-SARUnArchiveANY.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		848689CB172A55D00071C32A = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +175,7 @@
 				84868A63172A5CF00071C32A /* Resources */,
 				848689D6172A55D00071C32A /* Frameworks */,
 				848689D5172A55D00071C32A /* Products */,
+				1647B3F64C41583B50154FD2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,6 +194,7 @@
 				848689D7172A55D00071C32A /* UIKit.framework */,
 				848689D9172A55D00071C32A /* Foundation.framework */,
 				848689DB172A55D00071C32A /* CoreGraphics.framework */,
+				5D83226E8FA1FF1BB5864A13 /* Pods_SARUnArchiveANY.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -233,7 +244,6 @@
 		EB8F9C821C4A2BFA00C0ABA4 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
-				EB8F9D0D1C4A2C2E00C0ABA4 /* Frameworks */,
 				EB8F9C831C4A2BFA00C0ABA4 /* LZMASDK */,
 				EB8F9CE71C4A2BFA00C0ABA4 /* ZipArchive */,
 			);
@@ -325,14 +335,6 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
-		EB8F9D0D1C4A2C2E00C0ABA4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6A99E3DA20319B6E00BC0B30 /* UnrarKit.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,10 +342,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 848689FA172A55D00071C32A /* Build configuration list for PBXNativeTarget "SARUnArchiveANY" */;
 			buildPhases = (
+				AC3161F6B7A4908446228B50 /* [CP] Check Pods Manifest.lock */,
 				848689D0172A55D00071C32A /* Sources */,
 				848689D1172A55D00071C32A /* Frameworks */,
 				848689D2172A55D00071C32A /* Resources */,
-				6A99E3DE20319D7300BC0B30 /* Embed Frameworks */,
+				6A99E3FA2031B40800BC0B30 /* Embed Frameworks */,
+				30E64B068B4067E0E2F1619A /* [CP] Embed Pods Frameworks */,
+				D9D9B76BF055B28394DC9E84 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -405,6 +410,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		30E64B068B4067E0E2F1619A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SARUnArchiveANY/Pods-SARUnArchiveANY-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UnrarKit/UnrarKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UnrarKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SARUnArchiveANY/Pods-SARUnArchiveANY-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC3161F6B7A4908446228B50 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SARUnArchiveANY-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9D9B76BF055B28394DC9E84 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SARUnArchiveANY/Pods-SARUnArchiveANY-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		848689D0172A55D00071C32A /* Sources */ = {
@@ -535,6 +594,7 @@
 		};
 		848689FB172A55D00071C32A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD30F64300F8D4573851963A /* Pods-SARUnArchiveANY.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = NO;
@@ -544,6 +604,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
 					"$(PROJECT_DIR)/SARUnArchiveANY/vendor/Frameworks",
+					"$(PROJECT_DIR)/SARUnArchiveANY/vendor/Frameworks/Simulator",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SARUnArchiveANY/SARUnArchiveANY-Prefix.pch";
@@ -559,6 +620,7 @@
 		};
 		848689FC172A55D00071C32A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A4F601F5DFBCF7A940A6115 /* Pods-SARUnArchiveANY.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = NO;
@@ -568,6 +630,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
 					"$(PROJECT_DIR)/SARUnArchiveANY/vendor/Frameworks",
+					"$(PROJECT_DIR)/SARUnArchiveANY/vendor/Frameworks/Simulator",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SARUnArchiveANY/SARUnArchiveANY-Prefix.pch";

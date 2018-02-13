@@ -138,9 +138,10 @@ static WRes Utf16_To_Char(CBuf *buf, const UInt16 *s, int fileMode)
   #endif
 }
 
-static WRes MyCreateDir(const UInt16 *name)
+static WRes MyCreateDir(const UInt16 *name, const char *threadCwd)
 {
   #ifdef USE_WINDOWS_FILE
+  /* FIXME: windows lacks threadCwd support */
   
   return CreateDirectoryW(name, NULL) ? 0 : GetLastError();
   
@@ -150,21 +151,31 @@ static WRes MyCreateDir(const UInt16 *name)
   WRes res;
   Buf_Init(&buf);
   RINOK(Utf16_To_Char(&buf, name, 1));
-
+  
+  char *qualName = (char*) buf.data;
+  if (threadCwd != NULL) {
+    qualName = (char *) malloc(strlen(threadCwd) + strlen(qualName) + 1);
+    strcpy(qualName, threadCwd);
+    strcat(qualName, (char*) buf.data);
+  }
+  
   res =
   #ifdef _WIN32
-  _mkdir((const char *)buf.data)
+  _mkdir((const char *)qualName)
   #else
-  mkdir((const char *)buf.data, 0777)
+  mkdir((const char *)qualName, 0777)
   #endif
   == 0 ? 0 : errno;
   Buf_Free(&buf, &g_Alloc);
+  if (qualName != (char*)buf.data) {
+    free(qualName);
+  }
   return res;
   
   #endif
 }
 
-static WRes OutFile_OpenUtf16(CSzFile *p, const UInt16 *name)
+static WRes OutFile_OpenUtf16(CSzFile *p, const UInt16 *name, const char *threadCwd)
 {
   #ifdef USE_WINDOWS_FILE
   return OutFile_OpenW(p, name);
@@ -173,7 +184,7 @@ static WRes OutFile_OpenUtf16(CSzFile *p, const UInt16 *name)
   WRes res;
   Buf_Init(&buf);
   RINOK(Utf16_To_Char(&buf, name, 1));
-  res = OutFile_Open(p, (const char *)buf.data);
+  res = OutFile_Open(p, (const char *)buf.data, threadCwd);
   Buf_Free(&buf, &g_Alloc);
   return res;
   #endif
@@ -514,7 +525,7 @@ void PrintError(char *sz)
 
 //#define DEBUG_OUTPUT
 
-int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryName, char *entryPath, int fullPaths)
+int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *threadCwd, char *entryName, char *entryPath, int fullPaths)
 {
   CFileInStream archiveStream;
   CLookToRead lookStream;
@@ -690,7 +701,7 @@ int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryNam
                 if (fullPaths)
                 {
                   name[j] = 0;
-                  MyCreateDir(name);
+                  MyCreateDir(name, threadCwd);
                   name[j] = CHAR_PATH_SEPARATOR;
                 }
                 else {
@@ -713,13 +724,13 @@ int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryNam
           
           if (f->IsDir)
           {
-            MyCreateDir(destPath);
+            MyCreateDir(destPath, threadCwd);
 #ifdef DEBUG_OUTPUT
             printf("\n");
 #endif
             continue;
           }
-          else if (OutFile_OpenUtf16(&outFile, destPath))
+          else if (OutFile_OpenUtf16(&outFile, destPath, threadCwd))
           {
             PrintError("can not open output file");
             res = SZ_ERROR_FAIL;

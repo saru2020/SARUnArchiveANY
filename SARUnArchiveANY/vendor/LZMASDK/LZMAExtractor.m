@@ -1,6 +1,6 @@
 //
 //  LZMAExtractor.m
-//  flipbooks
+//  lzmaSDK
 //
 //  Created by Mo DeJong on 11/19/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import "LZMAExtractor.h"
 
-int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryName, char *entryPath, int fullPaths);
+int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *threadCwd, char *entryName, char *entryPath, int fullPaths);
 
 @implementation LZMAExtractor
 
@@ -125,17 +125,22 @@ int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryNam
     NSAssert(worked, @"could not create tmp dir");
   }
   
-  worked = [[NSFileManager defaultManager] changeCurrentDirectoryPath:myTmpDir];
-  NSAssert(worked, @"cd to tmp 7z dir failed");
-  NSLog(@"cd to %@", myTmpDir);
+  // Create dir str that has a '/' character at the end so that strcat() can be used to
+  // create a path string without using Cocoa path join logic.
+  
+  NSMutableString *dirQualMStr = [NSMutableString stringWithString:dirName];
+  if ([dirQualMStr hasSuffix:@"/"] == FALSE) {
+    [dirQualMStr appendString:@"/"];
+  }
   
   char *archivePathPtr = (char*) [archivePath UTF8String];
   NSString *archiveCachePath = [self generateUniqueTmpCachePath];
   char *archiveCachePathPtr = (char*) [archiveCachePath UTF8String];
+  char *threadCwd = (char*) [dirQualMStr UTF8String];
   char *entryNamePtr = NULL; // Extract all entries by passing NULL
   char *entryPathPtr = NULL;
   
-  int result = do7z_extract_entry(archivePathPtr, archiveCachePathPtr, entryNamePtr, entryPathPtr, preserveDir ? 1 : 0);
+  int result = do7z_extract_entry(archivePathPtr, archiveCachePathPtr, threadCwd, entryNamePtr, entryPathPtr, preserveDir ? 1 : 0);
   NSAssert(result == 0, @"could not extract files from 7z archive");
   
   // Examine the contents of the current directory to see what was extracted
@@ -177,7 +182,7 @@ int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryNam
   char *archiveEntryPtr = (char*) [archiveEntry UTF8String];
   char *outPathPtr = (char*) [outPath UTF8String];
     
-  int result = do7z_extract_entry(archivePathPtr, archiveCachePathPtr, archiveEntryPtr, outPathPtr, 0);
+  int result = do7z_extract_entry(archivePathPtr, archiveCachePathPtr, NULL, archiveEntryPtr, outPathPtr, 0);
   return (result == 0);
 }
 
