@@ -43,11 +43,6 @@
 		EB8F9D031C4A2BFA00C0ABA4 /* Ppmd8Dec.c in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CA11C4A2BFA00C0ABA4 /* Ppmd8Dec.c */; };
 		EB8F9D041C4A2BFA00C0ABA4 /* 7zAlloc.c in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CA61C4A2BFA00C0ABA4 /* 7zAlloc.c */; };
 		EB8F9D051C4A2BFA00C0ABA4 /* 7zMain.c in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CA81C4A2BFA00C0ABA4 /* 7zMain.c */; };
-		EB8F9D081C4A2BFA00C0ABA4 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CEA1C4A2BFA00C0ABA4 /* ioapi.c */; };
-		EB8F9D091C4A2BFA00C0ABA4 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CEC1C4A2BFA00C0ABA4 /* mztools.c */; };
-		EB8F9D0A1C4A2BFA00C0ABA4 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CEE1C4A2BFA00C0ABA4 /* unzip.c */; };
-		EB8F9D0B1C4A2BFA00C0ABA4 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CF01C4A2BFA00C0ABA4 /* zip.c */; };
-		EB8F9D0C1C4A2BFA00C0ABA4 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8F9CF31C4A2BFA00C0ABA4 /* SSZipArchive.m */; };
 		EBC744531D227F9900EE4011 /* example_pwd.rar in Resources */ = {isa = PBXBuildFile; fileRef = EBC744511D227F9900EE4011 /* example_pwd.rar */; };
 		EBC744541D227F9900EE4011 /* Zip_Example_pwd.zip in Resources */ = {isa = PBXBuildFile; fileRef = EBC744521D227F9900EE4011 /* Zip_Example_pwd.zip */; };
 /* End PBXBuildFile section */
@@ -127,17 +122,6 @@
 		EB8F9CA61C4A2BFA00C0ABA4 /* 7zAlloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zAlloc.c; sourceTree = "<group>"; };
 		EB8F9CA71C4A2BFA00C0ABA4 /* 7zAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zAlloc.h; sourceTree = "<group>"; };
 		EB8F9CA81C4A2BFA00C0ABA4 /* 7zMain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zMain.c; sourceTree = "<group>"; };
-		EB8F9CE91C4A2BFA00C0ABA4 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		EB8F9CEA1C4A2BFA00C0ABA4 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		EB8F9CEB1C4A2BFA00C0ABA4 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		EB8F9CEC1C4A2BFA00C0ABA4 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		EB8F9CED1C4A2BFA00C0ABA4 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		EB8F9CEE1C4A2BFA00C0ABA4 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		EB8F9CEF1C4A2BFA00C0ABA4 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		EB8F9CF01C4A2BFA00C0ABA4 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		EB8F9CF11C4A2BFA00C0ABA4 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		EB8F9CF21C4A2BFA00C0ABA4 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
-		EB8F9CF31C4A2BFA00C0ABA4 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		EBC744511D227F9900EE4011 /* example_pwd.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = example_pwd.rar; sourceTree = "<group>"; };
 		EBC744521D227F9900EE4011 /* Zip_Example_pwd.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Zip_Example_pwd.zip; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				EB8F9C831C4A2BFA00C0ABA4 /* LZMASDK */,
-				EB8F9CE71C4A2BFA00C0ABA4 /* ZipArchive */,
 			);
 			name = vendor;
 			path = SARUnArchiveANY/vendor;
@@ -307,32 +290,6 @@
 				EB8F9CA81C4A2BFA00C0ABA4 /* 7zMain.c */,
 			);
 			path = 7z;
-			sourceTree = "<group>";
-		};
-		EB8F9CE71C4A2BFA00C0ABA4 /* ZipArchive */ = {
-			isa = PBXGroup;
-			children = (
-				EB8F9CE81C4A2BFA00C0ABA4 /* minizip */,
-				EB8F9CF21C4A2BFA00C0ABA4 /* SSZipArchive.h */,
-				EB8F9CF31C4A2BFA00C0ABA4 /* SSZipArchive.m */,
-			);
-			path = ZipArchive;
-			sourceTree = "<group>";
-		};
-		EB8F9CE81C4A2BFA00C0ABA4 /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				EB8F9CE91C4A2BFA00C0ABA4 /* crypt.h */,
-				EB8F9CEA1C4A2BFA00C0ABA4 /* ioapi.c */,
-				EB8F9CEB1C4A2BFA00C0ABA4 /* ioapi.h */,
-				EB8F9CEC1C4A2BFA00C0ABA4 /* mztools.c */,
-				EB8F9CED1C4A2BFA00C0ABA4 /* mztools.h */,
-				EB8F9CEE1C4A2BFA00C0ABA4 /* unzip.c */,
-				EB8F9CEF1C4A2BFA00C0ABA4 /* unzip.h */,
-				EB8F9CF01C4A2BFA00C0ABA4 /* zip.c */,
-				EB8F9CF11C4A2BFA00C0ABA4 /* zip.h */,
-			);
-			path = minizip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,10 +376,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SARUnArchiveANY/Pods-SARUnArchiveANY-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/UnrarKit/UnrarKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UnrarKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,7 +432,6 @@
 				EB8F9CF41C4A2BFA00C0ABA4 /* 7zBuf.c in Sources */,
 				EB8F9D021C4A2BFA00C0ABA4 /* Ppmd8.c in Sources */,
 				EB8F9CF61C4A2BFA00C0ABA4 /* 7zDec.c in Sources */,
-				EB8F9D0C1C4A2BFA00C0ABA4 /* SSZipArchive.m in Sources */,
 				EB8F9CF71C4A2BFA00C0ABA4 /* 7zFile.c in Sources */,
 				EB8F9CF51C4A2BFA00C0ABA4 /* 7zBuf2.c in Sources */,
 				EB8F9CFC1C4A2BFA00C0ABA4 /* Delta.c in Sources */,
@@ -481,22 +439,18 @@
 				EB8F9CFE1C4A2BFA00C0ABA4 /* LzmaDec.c in Sources */,
 				EB8F9D001C4A2BFA00C0ABA4 /* Ppmd7.c in Sources */,
 				EB8F9D031C4A2BFA00C0ABA4 /* Ppmd8Dec.c in Sources */,
-				EB8F9D091C4A2BFA00C0ABA4 /* mztools.c in Sources */,
 				EB8F9D011C4A2BFA00C0ABA4 /* Ppmd7Dec.c in Sources */,
 				EB8F9CFB1C4A2BFA00C0ABA4 /* CpuArch.c in Sources */,
 				848689E4172A55D00071C32A /* main.m in Sources */,
 				EB8F9CFD1C4A2BFA00C0ABA4 /* Lzma2Dec.c in Sources */,
 				848689E8172A55D00071C32A /* AppDelegate.m in Sources */,
-				EB8F9D0A1C4A2BFA00C0ABA4 /* unzip.c in Sources */,
 				EB8F9CFF1C4A2BFA00C0ABA4 /* LZMAExtractor.m in Sources */,
 				848689F1172A55D00071C32A /* ViewController.m in Sources */,
 				84868A6A172A800D0071C32A /* SARUnArchiveANY.m in Sources */,
 				EB8F9CF91C4A2BFA00C0ABA4 /* 7zStream.c in Sources */,
 				EB8F9CFA1C4A2BFA00C0ABA4 /* Alloc.c in Sources */,
 				EB8F9CF81C4A2BFA00C0ABA4 /* 7zIn.c in Sources */,
-				EB8F9D0B1C4A2BFA00C0ABA4 /* zip.c in Sources */,
 				EB8F9D051C4A2BFA00C0ABA4 /* 7zMain.c in Sources */,
-				EB8F9D081C4A2BFA00C0ABA4 /* ioapi.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

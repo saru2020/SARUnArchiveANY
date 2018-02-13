@@ -6,7 +6,8 @@ target 'SARUnArchiveANY' do
   use_frameworks!
 
   pod "UnrarKit"
-
+  pod 'SSZipArchive', '~> 0.3.2'
+  
   # Pods for SARUnArchiveANY
 
 end
