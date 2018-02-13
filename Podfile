@@ -7,6 +7,7 @@ target 'SARUnArchiveANY' do
 
   pod "UnrarKit"
   pod 'SSZipArchive', '~> 0.3.2'
+  pod 'LzmaSDK-ObjC', :inhibit_warnings => true
   
   # Pods for SARUnArchiveANY
 

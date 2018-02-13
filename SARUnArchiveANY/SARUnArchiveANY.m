@@ -8,7 +8,8 @@
 
 #import "SARUnArchiveANY.h"
 #import "SSZipArchive.h"
-#import "LZMAExtractor.h"
+#import "LzmaSDKObjC.h"
+
 @import UnrarKit;
 
 @implementation SARUnArchiveANY
@@ -139,20 +140,69 @@
 - (void)decompress7z{
     NSString *tmpDirname = @"Extract 7z";    
     _destinationPath = [_destinationPath stringByAppendingPathComponent:tmpDirname];
+    NSLog(@"_filePath: %@", _filePath);
+    NSLog(@"_destinationPath: %@", _destinationPath);
     
-    NSArray *contents = [LZMAExtractor extract7zArchive:_filePath dirName:_destinationPath preserveDir:YES];
+//    LzmaSDKObjCReader *reader = [[LzmaSDKObjCReader alloc] initWithFileURL:[NSURL fileURLWithPath:_filePath]];
+    // 1.2 Or create with predefined archive type if path doesn't containes suitable extension
+    LzmaSDKObjCReader *reader = [[LzmaSDKObjCReader alloc] initWithFileURL:[NSURL fileURLWithPath:_filePath] andType:LzmaSDKObjCFileType7z];
     
-//    UnComment below lines to see the path of each file extracted    
-//    for (NSString *entryPath in contents) {
-//        NSLog(@"entryPath : %@", entryPath);
-//    }
+//    // Optionaly: assign weak delegate for tracking extract progress.
+//    reader.delegate = self;
     
-    if (![contents count]) {
+    // If achive encrypted - define password getter handler.
+    // NOTES:
+    // - Encrypted file needs password for extract process.
+    // - Encrypted file with encrypted header needs password for list(iterate) and extract archive items.
+    reader.passwordGetter = ^NSString*(void){
+//        return @"password to my achive";
+        NSLog(@"self.password: %@", self.password);
+        return self.password;
+    };
+    
+    // Open archive, with or without error. Error can be nil.
+    NSError * error = nil;
+    if (![reader open:&error]) {
+        NSLog(@"Open error: %@", error);
+    }
+    NSLog(@"Open error: %@", reader.lastError);
+    
+    NSMutableArray *filePathsArray = [NSMutableArray array];
+
+    NSMutableArray * items = [NSMutableArray array]; // Array with selected items.
+    // Iterate all archive items, track what items do you need & hold them in array.
+    [reader iterateWithHandler:^BOOL(LzmaSDKObjCItem * item, NSError * error){
+//        NSLog(@"\nitem:%@", item);
+        if (item) {
+            [items addObject:item]; // if needs this item - store to array.
+            if (!item.isDirectory) {
+                NSString *filePath = [_destinationPath stringByAppendingPathComponent:item.directoryPath];
+                filePath = [filePath stringByAppendingPathComponent:item.fileName];
+                [filePathsArray addObject:filePath];
+            }
+        }
+        return YES; // YES - continue iterate, NO - stop iteration
+    }];
+    NSLog(@"Iteration error: %@", reader.lastError);
+    
+    // Extract selected items from prev. step.
+    // YES - create subfolders structure for the items.
+    // NO - place item file to the root of path(in this case items with the same names will be overwrited automaticaly).
+    [reader extract:items
+              toPath:_destinationPath
+       withFullPaths:YES];
+    NSLog(@"Extract error: %@", reader.lastError);
+    
+    // Test selected items from prev. step.
+    [reader test:items];
+    NSLog(@"test error: %@", reader.lastError);
+    if (reader.lastError || ![filePathsArray count]) {
         failureBlock();
     }
-    else{
-        completionBlock(contents);
+    else {
+        completionBlock(filePathsArray);
     }
+    
 }
 
 #pragma mark - SSZipArchive Delegates
