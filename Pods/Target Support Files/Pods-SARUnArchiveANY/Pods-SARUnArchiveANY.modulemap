@@ -1,0 +1,6 @@
+framework module Pods_SARUnArchiveANY {
+  umbrella header "Pods-SARUnArchiveANY-umbrella.h"
+
+  export *
+  module * { export * }
+}
